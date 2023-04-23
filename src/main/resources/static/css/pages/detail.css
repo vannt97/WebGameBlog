@@ -1,0 +1,123 @@
+ul{
+    list-style: revert;
+    padding: revert;
+}
+#detail{
+    margin-top: 24px;
+}
+.schedule-post{
+    margin-bottom: 20px;
+}
+.schedule-post > p{
+    display: inline-block;
+}
+.schedule-post > p .type-label{
+    padding: 3px 5px;
+    display: inline-block;
+    background-color: var(--red-color-1);
+    color: white;
+    line-height: 15px;
+    margin-right: 5px;
+}
+.schedule-post > p .time{
+    color: #8b8b8b;
+}
+.schedule-post > div{
+    float: right;
+    color: #8b8b8b;
+}
+.schedule-post > div > *{
+    margin-left: 15px;
+}
+.share-box{
+    margin: 20px 0;
+    display: block;
+}
+.numbers-share{
+    margin-right: 15px;
+    float: left;
+}
+.numbers-share > p{
+    font-size: 55px;
+    line-height: 50px;
+    color: var(--red-color-1);
+    font-weight: bold;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.numbers-share >span{
+    display: inline-block;
+    color: #8b8b8b;
+}
+.btn-shares{
+    display: flex;
+    justify-content: center;
+}
+.btn-shares a{
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-width: 0;
+    box-shadow: 0 0;
+    padding: 13px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    float: left;
+    border: 0;
+    text-decoration: none;
+    text-align: center;
+    background-color: #2d5f9a;
+}
+
+.btn-shares a i{
+    margin-right: 10px;
+}
+.content-detail{
+    margin-bottom: 20px;
+}
+.content-detail a{
+    color: white;
+}
+.tag-post{
+    margin-bottom: 20px;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: Oswald,sans-serif;
+    text-transform: uppercase;
+}
+.tag-post span,
+.tag-post a{
+    color: #fff;
+    background-color: #242424;
+    padding: 2px 10px;
+    line-height: 18px;
+    display: inline-block;
+}
+.tag-post a{
+    display: inline-block;
+    background-color: #313131;
+    margin-bottom: 5px;
+    margin-right: 3px;
+}
+.tag-post a:hover{
+    background-color: var(--red-color-1);
+}
+.links-post {
+    font-family: Oswald,sans-serif;
+    font-size: 16px;
+    color: white;
+
+}
+.links-post span{
+    padding: 11px 15px;
+    background-color: #191919!important;
+}
+.links-post a{
+    padding: 11px 15px;
+    background-color: #242424;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.links-post a:hover{
+    opacity: 0.9;
+}

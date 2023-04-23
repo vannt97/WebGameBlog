@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{index}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/pages/home.css}"/>
+    <script th:src="@{/js/pages/home.js}"></script>
+</head>
+<body>
+<section layout:fragment="content" id="home" class="container-fluid">
+    <section class="module-slider">
+        <div class="row">
+            <div class="col-12 col-lg-7" >
+                <div class="slider">
+                    <div th:each="blog,iStat : ${blogs}" class="item-slider" th:if="${iStat.index < 3}">
+                        <div class="position-relative item-main">
+                            <a th:href="${'/' + blog.slug}" >
+                                <img width="630" height="350" loading="lazy" role="presentation" th:src="${blog.thumbnail}"
+                                     alt="game-1" sizes="(max-width: 610px) 100vw, 630px"/>
+                                <div class="dark-cover"></div>
+                            </a>
+                            <div class="main-text-slider">
+                                <h1>
+                                    <a th:href="${'/' + blog.slug}" th:text="${blog.title}">Mirror’s Edge refines the game</a>
+                                </h1>
+                                <p th:text="${blog.description}">Several transmissions were beamed to this ship by Rebel spies. I want to know what
+                                    happened to the plans…</p>
+                            </div>
+                        </div>
+                    </div>
+<!--                    <div class="item-slider">-->
+<!--                        <div class="position-relative item-main">-->
+<!--                            <a href="#">-->
+<!--                                <img loading="lazy" role="presentation" th:src="@{/images/game-2-610x349.png}"-->
+<!--                                     alt="game-1" sizes="(max-width: 610px) 100vw, 630px"-->
+<!--                                     th:attr="srcset=@{/images/game-2-610x349.png} + ' 610w, '-->
+<!--                                     + @{/images/game-2-402x230.png} + ' 402w, '-->
+<!--                                     + @{/images/game-2-174x100.png} + ' 174w'"/>-->
+<!--                                <div class="dark-cover"></div>-->
+<!--                            </a>-->
+<!--                            <div class="main-text-slider">-->
+<!--                                <h1>-->
+<!--                                    <a href="#">The time of peace was restored</a>-->
+<!--                                </h1>-->
+<!--                                <p>They key is to have every key, the key to open every door. Let’s see what Chef Dee-->
+<!--                                    got…</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="item-slider">-->
+<!--                        <div class="position-relative item-main">-->
+<!--                            <a href="#">-->
+<!--                                <img loading="lazy" role="presentation" th:src="@{/images/game-3-610x349.png}"-->
+<!--                                     alt="game-1" sizes="(max-width: 610px) 100vw, 630px"-->
+<!--                                     th:attr="srcset=@{/images/game-3-610x349.png} + ' 610w, '-->
+<!--                                     + @{/images/game-3-402x230.png} + ' 402w, '-->
+<!--                                     + @{/images/game-3-174x100.png} + ' 174w'"/>-->
+<!--                                <div class="dark-cover"></div>-->
+<!--                            </a>-->
+<!--                            <div class="main-text-slider">-->
+<!--                                <h1>-->
+<!--                                    <a href="#">My favorite hotel game</a>-->
+<!--                                </h1>-->
+<!--                                <p>Several transmissions were beamed to this ship by Rebel spies. I want to know what-->
+<!--                                    happened to the plans…</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+            <div class="d-none d-lg-block col-5">
+                <div class="items">
+                    <div class="row">
+                        <div th:each="blog,iStat : ${blogs}" class="col-6" th:if="${iStat.index >= 3 && iStat.index < 7}">
+                            <div class="item-post">
+                                <div class="image-post">
+                                    <a th:href="${'/' + blog.slug}">
+                                        <img loading="lazy" role="presentation" th:src="${blog.thumbnail}"
+                                             alt="image-game" sizes="(max-width: 224px) 100vw, 224px" style="height: 174px; object-fit: cover"/>
+                                        <div class="dark-cover"></div>
+                                    </a>
+                                </div>
+                                <div class="post-title">
+                                    <a th:href="${'/' + blog.slug}">
+                                        <h2 th:text="${blog.title}">Help Vikings in love affairs!</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+<!--                        <div class="col-6">-->
+<!--                            <div class="item-post">-->
+<!--                                <div class="image-post">-->
+<!--                                    <a href="#">-->
+<!--                                        <img loading="lazy" role="presentation" th:src="@{/images/game-4-224x174.jpg}"-->
+<!--                                             alt="image-game" sizes="(max-width: 224px) 100vw, 224px"-->
+<!--                                             th:attr="srcset=@{/images/game-5-224x174.jpg} + ' 224w, '-->
+<!--                                            + @{/images/game-5-90x70.jpg} + ' 90w'"/>-->
+<!--                                        <div class="dark-cover"></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                                <div class="post-title">-->
+<!--                                    <a href="#">-->
+<!--                                        <h2>Our friends are coming back again!</h2>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-6">-->
+<!--                            <div class="item-post">-->
+<!--                                <div class="image-post">-->
+<!--                                    <a href="#">-->
+<!--                                        <img loading="lazy" role="presentation" th:src="@{/images/game-4-224x174.jpg}"-->
+<!--                                             alt="image-game" sizes="(max-width: 224px) 100vw, 224px"-->
+<!--                                             th:attr="srcset=@{/images/game-6-224x174.jpg} + ' 224w, '-->
+<!--                                            + @{/images/game-6-90x70.jpg} + ' 90w'"/>-->
+<!--                                        <div class="dark-cover"></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                                <div class="post-title">-->
+<!--                                    <a href="#">-->
+<!--                                        <h2>A great theme for your gaming site</h2>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--    <section id="today-highlights" class="layout-content">-->
+<!--        <div class="title">-->
+<!--            <h3>-->
+<!--                <p>Today Highlights</p>-->
+<!--                <span>TOP</span>-->
+<!--            </h3>-->
+<!--            <a href="#">view all</a>-->
+<!--        </div>-->
+<!--        <div class="container-fluid">-->
+<!--            <div class="row">-->
+<!--                <div class="col-12 col-lg-6">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#" class="">-->
+<!--                            <img loading="lazy" th:src="@{/images/game-8-610x420.png}" alt="game"/>-->
+<!--                            <div class="i-table">-->
+<!--                                <p>Arcade</p>-->
+<!--                                <h4>-->
+<!--                                    Fortnite Food Truck Locations </h4>-->
+<!--                            </div>-->
+<!--                            <div class="triangle-shape"></div>-->
+<!--                            <div class="triangle-shape-last"></div>-->
+<!--                            <div class="i-cell">-->
+<!--                                <span>-->
+<!--                                    <span>Play</span>-->
+<!--                                    <span>-->
+<!--                                        <i class="fa-sharp fa-solid fa-angle-right"></i></span>-->
+<!--                                </span>-->
+<!--                            </div>-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-lg-6">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#" class="">-->
+<!--                            <img loading="lazy" th:src="@{/images/game-9-610x420.jpg}" alt="game"/>-->
+<!--                            <div class="i-table">-->
+<!--                                <p>Arcade</p>-->
+<!--                                <h4>-->
+<!--                                    Fortnite Food Truck Locations </h4>-->
+<!--                            </div>-->
+<!--                            <div class="triangle-shape"></div>-->
+<!--                            <div class="triangle-shape-last"></div>-->
+<!--                            <div class="i-cell">-->
+<!--                                <span>-->
+<!--                                    <span>Play</span>-->
+<!--                                    <span>-->
+<!--                                        <i class="fa-sharp fa-solid fa-angle-right"></i></span>-->
+<!--                                </span>-->
+<!--                            </div>-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-lg-6">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#" class="">-->
+<!--                            <img loading="lazy" th:src="@{/images/game-10-610x420.jpg}" alt="game"/>-->
+<!--                            <div class="i-table">-->
+<!--                                <p>Arcade</p>-->
+<!--                                <h4>-->
+<!--                                    Fortnite Food Truck Locations </h4>-->
+<!--                            </div>-->
+<!--                            <div class="triangle-shape"></div>-->
+<!--                            <div class="triangle-shape-last"></div>-->
+<!--                            <div class="i-cell">-->
+<!--                                <span>-->
+<!--                                    <span>Play</span>-->
+<!--                                    <span>-->
+<!--                                        <i class="fa-sharp fa-solid fa-angle-right"></i></span>-->
+<!--                                </span>-->
+<!--                            </div>-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-lg-6">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#" class="">-->
+<!--                            <img loading="lazy" th:src="@{/images/game-11-610x420.jpg}" alt="game"/>-->
+<!--                            <div class="i-table">-->
+<!--                                <p>Arcade</p>-->
+<!--                                <h4>-->
+<!--                                    Fortnite Food Truck Locations </h4>-->
+<!--                            </div>-->
+<!--                            <div class="triangle-shape"></div>-->
+<!--                            <div class="triangle-shape-last"></div>-->
+<!--                            <div class="i-cell">-->
+<!--                                <span>-->
+<!--                                    <span>Play</span>-->
+<!--                                    <span>-->
+<!--                                        <i class="fa-sharp fa-solid fa-angle-right"></i></span>-->
+<!--                                </span>-->
+<!--                            </div>-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--    <section id="popular-hot" class="layout-content">-->
+<!--        <div class="title">-->
+<!--            <h3>-->
+<!--                <p>Popular</p>-->
+<!--                <span>HOT</span>-->
+<!--            </h3>-->
+<!--            <a href="#">view all</a>-->
+<!--        </div>-->
+<!--        <div class="container-fluid">-->
+<!--            <div class="row">-->
+<!--                <div class="col-12 col-lg-4">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#">-->
+<!--                            <img width="302" height="180" th:src="@{/images/game-12-302x180.jpg}" alt="game-icon" loading="lazy">-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                        <h2 class="item-title">-->
+<!--                            <a href="#">-->
+<!--                                THE NEW POP CULTURE OPTIMISM-->
+<!--                            </a>-->
+<!--                        </h2>-->
+<!--                        <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-lg-4">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#">-->
+<!--                            <img width="302" height="180" th:src="@{/images/game-13-302x180.jpg}" alt="game-icon" loading="lazy">-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                        <h2 class="item-title">-->
+<!--                            <a href="#">-->
+<!--                                GAME OF THE YEAR 2021-->
+<!--                            </a>-->
+<!--                        </h2>-->
+<!--                        <p>Oct 14, 2020 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-lg-4">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#">-->
+<!--                            <img width="302" height="180" th:src="@{/images/game-14-302x180.jpg}" alt="game-icon" loading="lazy">-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                        <h2 class="item-title">-->
+<!--                            <a href="#">-->
+<!--                                MY FAVORITE HOTEL GAME-->
+<!--                            </a>-->
+<!--                        </h2>-->
+<!--                        <p>Oct 14, 2020 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-lg-4">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#">-->
+<!--                            <img width="302" height="180" th:src="@{/images/game-15-302x180.jpg}" alt="game-icon" loading="lazy">-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                        <h2 class="item-title">-->
+<!--                            <a href="#">-->
+<!--                                ONE SIDE OF THIS GALAXY-->
+<!--                            </a>-->
+<!--                        </h2>-->
+<!--                        <p>Oct 14, 2020 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-lg-4">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#">-->
+<!--                            <img width="302" height="180" th:src="@{/images/game-16-302x180.png}" alt="game-icon" loading="lazy">-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                        <h2 class="item-title">-->
+<!--                            <a href="#">-->
+<!--                                MAY THE FORCE BE WITH YOU-->
+<!--                            </a>-->
+<!--                        </h2>-->
+<!--                        <p>Jul 14, 2020 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-lg-4">-->
+<!--                    <div class="item-post">-->
+<!--                        <a href="#">-->
+<!--                            <img width="302" height="180" th:src="@{/images/game-17-302x180.jpg}" alt="game-icon" loading="lazy">-->
+<!--                            <div class="dark-cover"></div>-->
+<!--                        </a>-->
+<!--                        <h2 class="item-title">-->
+<!--                            <a href="#">-->
+<!--                                DOOM ETERNAL HAS A NEW TRAILER-->
+<!--                            </a>-->
+<!--                        </h2>-->
+<!--                        <p>Jun 25, 2020 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+    <section id="content-container">
+<!--        <div class="row">-->
+<!--            <div class="col-12 col-lg-4">-->
+<!--                    <div class="layout-content">-->
+<!--                        <div class="title">-->
+<!--                            <h3>-->
+<!--                                <p>Action Games</p>-->
+<!--                            </h3>-->
+<!--                        </div>-->
+<!--                        <div class="container-fluid">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="category-item">-->
+<!--                                        <div class="item-post">-->
+<!--                                            <a href="#">-->
+<!--                                                <img width="302" height="180" th:src="@{/images/game-18-302x180.jpg}" alt="game-icon" loading="lazy">-->
+<!--                                                <div class="dark-cover"></div>-->
+<!--                                            </a>-->
+<!--                                            <h2 class="item-title">-->
+<!--                                                <a href="#">-->
+<!--                                                    New Battlefield Season Starts Soon-->
+<!--                                                </a>-->
+<!--                                            </h2>-->
+<!--                                            <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                                        </div>-->
+<!--                                        <div class="show-tha-border"></div>-->
+<!--                                        <div class="item-post-small">-->
+<!--                                            <a href="#">-->
+<!--                                                <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                                     alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                     th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                            </a>-->
+<!--                                            <div>-->
+<!--                                                <a href="#">-->
+<!--                                                    <h3>-->
+<!--                                                        Our Highest Review Scores of 2020</h3>-->
+<!--                                                </a>-->
+<!--                                                <p>-->
+<!--                                                    <span><i class="fa-regular fa-thumbs-up"></i>-->
+<!--                                                        9-->
+<!--                                                    </span>-->
+<!--                                                    <span>-->
+<!--                                                        <i class="fa-solid fa-trophy"></i>-->
+<!--                                                        3658-->
+<!--                                                        <span>Plays</span>-->
+<!--                                                    </span>-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                            <div class="clearfix"></div>-->
+<!--                                            <div class="show-tha-border"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="item-post-small">-->
+<!--                                            <a href="#">-->
+<!--                                                <img loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                                     alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                     th:attr="srcset=@{/images/game-20-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-20-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-20-90x90.jpg} + ' 90w'"/>-->
+<!--                                            </a>-->
+<!--                                            <div>-->
+<!--                                                <a href="#">-->
+<!--                                                    <h3>-->
+<!--                                                        This Game will Keep You up All Night</h3>-->
+<!--                                                </a>-->
+<!--                                                <p>-->
+<!--                                                    <span><i class="fa-regular fa-thumbs-up"></i>-->
+<!--                                                        9-->
+<!--                                                    </span>-->
+<!--                                                    <span>-->
+<!--                                                        <i class="fa-solid fa-trophy"></i>-->
+<!--                                                        3658-->
+<!--                                                        <span>Plays</span>-->
+<!--                                                    </span>-->
+<!--                                                </p>-->
+<!--                                            </div>                                            <div class="clearfix"></div>-->
+<!--                                            <div class="clearfix"></div>-->
+<!--                                            <div class="show-tha-border"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="moregame">-->
+<!--                                            <div>10</div>-->
+<!--                                            <a href="#" class="moregame-link">-->
+<!--                                                <div>-->
+<!--                                                    Read More-->
+<!--                                                    <i class="fa-sharp fa-solid fa-angle-right"></i>-->
+<!--                                                </div>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            <div class="col-12 col-lg-4">-->
+<!--                    <div class="layout-content">-->
+<!--                        <div class="title">-->
+<!--                            <h3>-->
+<!--                                <p>Arcade Games</p>-->
+<!--                            </h3>-->
+<!--                        </div>-->
+<!--                        <div class="container-fluid">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="category-item">-->
+<!--                                        <div class="item-post">-->
+<!--                                            <a href="#">-->
+<!--                                                <img width="302" height="180" th:src="@{/images/game-21-302x180.png}" alt="game-icon" loading="lazy">-->
+<!--                                                <div class="dark-cover"></div>-->
+<!--                                            </a>-->
+<!--                                            <h2 class="item-title">-->
+<!--                                                <a href="#">-->
+<!--                                                    New Battlefield Season Starts Soon-->
+<!--                                                </a>-->
+<!--                                            </h2>-->
+<!--                                            <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                                        </div>-->
+<!--                                        <div class="show-tha-border"></div>-->
+<!--                                        <div class="item-post-small">-->
+<!--                                            <a href="#">-->
+<!--                                                <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-22-80x80.jpg}"-->
+<!--                                                     alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                     th:attr="srcset=@{/images/game-22-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-22-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-22-90x90.jpg} + ' 90w'"/>-->
+<!--                                            </a>-->
+<!--                                            <div>-->
+<!--                                                <a href="#">-->
+<!--                                                    <h3>-->
+<!--                                                        Our Highest Review Scores of 2020</h3>-->
+<!--                                                </a>-->
+<!--                                                <p>-->
+<!--                                                    <span><i class="fa-regular fa-thumbs-up"></i>-->
+<!--                                                        9-->
+<!--                                                    </span>-->
+<!--                                                    <span>-->
+<!--                                                        <i class="fa-solid fa-trophy"></i>-->
+<!--                                                        3658-->
+<!--                                                        <span>Plays</span>-->
+<!--                                                    </span>-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                            <div class="clearfix"></div>-->
+<!--                                            <div class="show-tha-border"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="item-post-small">-->
+<!--                                            <a href="#">-->
+<!--                                                <img loading="lazy" role="presentation" th:src="@{/images/game-23-80x80.jpg}"-->
+<!--                                                     alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                     th:attr="srcset=@{/images/game-23-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-23-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-23-90x90.jpg} + ' 90w'"/>-->
+<!--                                            </a>-->
+<!--                                            <div>-->
+<!--                                                <a href="#">-->
+<!--                                                    <h3>-->
+<!--                                                        This Game will Keep You up All Night</h3>-->
+<!--                                                </a>-->
+<!--                                                <p>-->
+<!--                                                    <span><i class="fa-regular fa-thumbs-up"></i>-->
+<!--                                                        9-->
+<!--                                                    </span>-->
+<!--                                                    <span>-->
+<!--                                                        <i class="fa-solid fa-trophy"></i>-->
+<!--                                                        3658-->
+<!--                                                        <span>Plays</span>-->
+<!--                                                    </span>-->
+<!--                                                </p>-->
+<!--                                            </div>                                            <div class="clearfix"></div>-->
+<!--                                            <div class="clearfix"></div>-->
+<!--                                            <div class="show-tha-border"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="moregame">-->
+<!--                                            <div>10</div>-->
+<!--                                            <a href="#" class="moregame-link">-->
+<!--                                                <div>-->
+<!--                                                    Read More-->
+<!--                                                    <i class="fa-sharp fa-solid fa-angle-right"></i>-->
+<!--                                                </div>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            <div class="col-12 col-lg-4">-->
+<!--                    <div class="layout-content">-->
+<!--                        <div class="title">-->
+<!--                            <h3>-->
+<!--                                <p>Arcade Games</p>-->
+<!--                            </h3>-->
+<!--                        </div>-->
+<!--                        <div class="container-fluid">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="category-item">-->
+<!--                                        <div class="item-post">-->
+<!--                                            <a href="#">-->
+<!--                                                <img width="302" height="180" th:src="@{/images/game-24-302x180.jpg}" alt="game-icon" loading="lazy">-->
+<!--                                                <div class="dark-cover"></div>-->
+<!--                                            </a>-->
+<!--                                            <h2 class="item-title">-->
+<!--                                                <a href="#">-->
+<!--                                                    New Battlefield Season Starts Soon-->
+<!--                                                </a>-->
+<!--                                            </h2>-->
+<!--                                            <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                                        </div>-->
+<!--                                        <div class="show-tha-border"></div>-->
+<!--                                        <div class="item-post-small">-->
+<!--                                            <a href="#">-->
+<!--                                                <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-25-80x80.jpg}"-->
+<!--                                                     alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                     th:attr="srcset=@{/images/game-25-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-25-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-25-90x90.jpg} + ' 90w'"/>-->
+<!--                                            </a>-->
+<!--                                            <div>-->
+<!--                                                <a href="#">-->
+<!--                                                    <h3>-->
+<!--                                                        Our Highest Review Scores of 2020</h3>-->
+<!--                                                </a>-->
+<!--                                                <p>-->
+<!--                                                    <span><i class="fa-regular fa-thumbs-up"></i>-->
+<!--                                                        9-->
+<!--                                                    </span>-->
+<!--                                                    <span>-->
+<!--                                                        <i class="fa-solid fa-trophy"></i>-->
+<!--                                                        3658-->
+<!--                                                        <span>Plays</span>-->
+<!--                                                    </span>-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                            <div class="clearfix"></div>-->
+<!--                                            <div class="show-tha-border"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="item-post-small">-->
+<!--                                            <a href="#">-->
+<!--                                                <img loading="lazy" role="presentation" th:src="@{/images/game-23-80x80.jpg}"-->
+<!--                                                     alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                     th:attr="srcset=@{/images/game-23-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-23-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-23-90x90.jpg} + ' 90w'"/>-->
+<!--                                            </a>-->
+<!--                                            <div>-->
+<!--                                                <a href="#">-->
+<!--                                                    <h3>-->
+<!--                                                        This Game will Keep You up All Night</h3>-->
+<!--                                                </a>-->
+<!--                                                <p>-->
+<!--                                                    <span><i class="fa-regular fa-thumbs-up"></i>-->
+<!--                                                        9-->
+<!--                                                    </span>-->
+<!--                                                    <span>-->
+<!--                                                        <i class="fa-solid fa-trophy"></i>-->
+<!--                                                        3658-->
+<!--                                                        <span>Plays</span>-->
+<!--                                                    </span>-->
+<!--                                                </p>-->
+<!--                                            </div>                                            <div class="clearfix"></div>-->
+<!--                                            <div class="clearfix"></div>-->
+<!--                                            <div class="show-tha-border"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="moregame">-->
+<!--                                            <div>10</div>-->
+<!--                                            <a href="#" class="moregame-link">-->
+<!--                                                <div>-->
+<!--                                                    Read More-->
+<!--                                                    <i class="fa-sharp fa-solid fa-angle-right"></i>-->
+<!--                                                </div>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--        </div>-->
+        <div class="row">
+            <div class="col-12 col-lg-8">
+<!--                <div class="new-weekly-games">-->
+<!--                    <div class="layout-content">-->
+<!--                        <div class="title">-->
+<!--                            <h3>-->
+<!--                                <p>New Weekly Games!</p>-->
+<!--                            </h3>-->
+<!--                            <a href="#">view all</a>-->
+<!--                        </div>-->
+<!--                        <div class="container-fluid">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-12 col-lg-6">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img th:src="@{/images/game-24-302x180.jpg}" alt="game"/>-->
+<!--                                        </a>-->
+<!--                                        <h2 class="item-title">-->
+<!--                                            <a href="#">-->
+<!--                                                Top 10 Tips on Need for Speed Heat-->
+<!--                                            </a>-->
+<!--                                        </h2>-->
+<!--                                        <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12 col-lg-6">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img th:src="@{/images/game-24-302x180.jpg}" alt="game"/>-->
+<!--                                        </a>-->
+<!--                                        <h2 class="item-title">-->
+<!--                                            <a href="#">-->
+<!--                                                Top 10 Tips on Need for Speed Heat-->
+<!--                                            </a>-->
+<!--                                        </h2>-->
+<!--                                        <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12 col-lg-6">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img th:src="@{/images/game-24-302x180.jpg}" alt="game"/>-->
+<!--                                        </a>-->
+<!--                                        <h2 class="item-title">-->
+<!--                                            <a href="#">-->
+<!--                                                Top 10 Tips on Need for Speed Heat-->
+<!--                                            </a>-->
+<!--                                        </h2>-->
+<!--                                        <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12 col-lg-6">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img th:src="@{/images/game-24-302x180.jpg}" alt="game"/>-->
+<!--                                        </a>-->
+<!--                                        <h2 class="item-title">-->
+<!--                                            <a href="#">-->
+<!--                                                Top 10 Tips on Need for Speed Heat-->
+<!--                                            </a>-->
+<!--                                        </h2>-->
+<!--                                        <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div id="most-played">
+                    <div class="layout-content">
+                        <div class="title">
+                            <h3>
+                                <p>Mới Cập Nhật</p>
+<!--                                <span>TREND</span>-->
+                            </h3>
+<!--                            <a href="#">view all</a>-->
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row" id="container-posts">
+                                <div th:each="blog,iStat : ${blogs}" class="col-12" th:if="${iStat.index > 6}">
+                                    <div class="item-post">
+                                        <a th:href="${'/' + blog.slug}">
+                                            <img width="270" height="235" th:src="${blog.thumbnail}" class="" alt="" loading="lazy">
+                                        </a>
+                                        <div>
+                                            <h2 class="item-title">
+                                                <a th:href="${'/' + blog.slug}" th:text="${blog.title}">
+                                                    A great theme for your gaming site
+                                                </a>
+                                            </h2>
+                                            <p>
+                                                <span th:text="${blog.createdDate}">Feb 15, 2021</span>
+<!--                                                <a href="#"><i class="fa-regular fa-thumbs-up"></i> <span>2</span></a>-->
+<!--                                                <span><i class="fa-solid fa-trophy"></i> 1623 Plays</span>-->
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+<!--                                <div class="col-12">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img width="270" height="235" th:src="@{/images/game-26-270x235.jpg}" class="" alt="" loading="lazy">-->
+<!--                                        </a>-->
+<!--                                        <div>-->
+<!--                                            <h2 class="item-title">-->
+<!--                                                <a href="#">-->
+<!--                                                    A great theme for your gaming site-->
+<!--                                                </a>-->
+<!--                                            </h2>-->
+<!--                                            <p>-->
+<!--                                                <span>Feb 15, 2021</span>-->
+<!--                                                <a href="#"><i class="fa-regular fa-thumbs-up"></i> <span>2</span></a>-->
+<!--                                                <span><i class="fa-solid fa-trophy"></i> 1623 Plays</span>-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img width="270" height="235" th:src="@{/images/game-26-270x235.jpg}" class="" alt="" loading="lazy">-->
+<!--                                        </a>-->
+<!--                                        <div>-->
+<!--                                            <h2 class="item-title">-->
+<!--                                                <a href="#">-->
+<!--                                                    A great theme for your gaming site-->
+<!--                                                </a>-->
+<!--                                            </h2>-->
+<!--                                            <p>-->
+<!--                                                <span>Feb 15, 2021</span>-->
+<!--                                                <a href="#"><i class="fa-regular fa-thumbs-up"></i> <span>2</span></a>-->
+<!--                                                <span><i class="fa-solid fa-trophy"></i> 1623 Plays</span>-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                            </div>
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <button class="btn btn-danger w-100" id="btn-more-read">Xem thêm</button>
+                                </div>
+                                <div id="loadinggif" class="col-12 text-center" style="display: none">
+                                    <img  style="width: 30px" th:src="@{/images/loading-gif.gif}" alt="loading gif"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="col-12 col-lg-4">-->
+<!--                <div class="top-new">-->
+<!--                    <div class="layout-content">-->
+<!--                        <div class="title">-->
+<!--                            <h3>-->
+<!--                                <p>Top New!</p>-->
+<!--                            </h3>-->
+<!--                        </div>-->
+<!--                        <div class="container-fluid">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                                 alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                 th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                        </a>-->
+<!--                                        <div>-->
+<!--                                            <a href="#">-->
+<!--                                                <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                                            </a>-->
+<!--                                            <p>Feb 25, 2021</p>-->
+<!--                                            <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                                 alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                 th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                        </a>-->
+<!--                                        <div>-->
+<!--                                            <a href="#">-->
+<!--                                                <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                                            </a>-->
+<!--                                            <p>Feb 25, 2021</p>-->
+<!--                                            <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                                 alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                 th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                        </a>-->
+<!--                                        <div>-->
+<!--                                            <a href="#">-->
+<!--                                                <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                                            </a>-->
+<!--                                            <p>Feb 25, 2021</p>-->
+<!--                                            <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="item-post">-->
+<!--                                        <a href="#">-->
+<!--                                            <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                                 alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                                 th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                        </a>-->
+<!--                                        <div>-->
+<!--                                            <a href="#">-->
+<!--                                                <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                                            </a>-->
+<!--                                            <p>Feb 25, 2021</p>-->
+<!--                                            <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="game-play">-->
+<!--                    <div class="layout-content">-->
+<!--                        <div class="title">-->
+<!--                            <h3>-->
+<!--                                <p>Game Play</p>-->
+<!--                            </h3>-->
+<!--                        </div>-->
+<!--                        <div class="game-play-ytb">-->
+<!--                            <div class="w-100 position-relative">-->
+<!--                                <div>-->
+<!--                                    <iframe title="THE LAST OF US 2 PS5 Gameplay 4K HDR ULTRA HD" src="https://www.youtube.com/embed/orDRnUXu-Rw?start=50&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" id="fitvid410595"></iframe>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="shooter-games">-->
+<!--                    <div class="layout-content">-->
+<!--                        <div class="title">-->
+<!--                            <h3>-->
+<!--                                <p>Shooter Games</p>-->
+<!--                            </h3>-->
+<!--                        </div>-->
+<!--                        <div class="container-fluid">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="slider">-->
+<!--                                        <div class="item-slider">-->
+<!--                                            <a href="#">-->
+<!--                                                <img th:src="@{/images/game-27-300x365.jpg}" alt="game"/>-->
+<!--                                                <div>-->
+<!--                                                    <span class="label">February 25, 2021</span>-->
+<!--                                                    <p>This Game will Keep You up All Night</p>-->
+<!--                                                </div>-->
+<!--                                                <div class="dark-cover"></div>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                        <div class="item-slider">-->
+<!--                                            <a href="#">-->
+<!--                                                <img th:src="@{/images/game-28-300x365.jpg}" alt="game"/>-->
+<!--                                                <div>-->
+<!--                                                    <span class="label">February 25, 2021</span>-->
+<!--                                                    <p>This Game will Keep You up All Night</p>-->
+<!--                                                </div>-->
+<!--                                                <div class="dark-cover"></div>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                        <div class="item-slider">-->
+<!--                                            <a href="#">-->
+<!--                                                <img th:src="@{/images/game-29-300x365.jpg}" alt="game"/>-->
+<!--                                                <div>-->
+<!--                                                    <span class="label">February 25, 2021</span>-->
+<!--                                                    <p>This Game will Keep You up All Night</p>-->
+<!--                                                </div>-->
+<!--                                                <div class="dark-cover"></div>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                        <div class="item-slider">-->
+<!--                                            <a href="#">-->
+<!--                                                <img th:src="@{/images/game-27-300x365.jpg}" alt="game"/>-->
+<!--                                                <div>-->
+<!--                                                    <span class="label">February 25, 2021</span>-->
+<!--                                                    <p>This Game will Keep You up All Night</p>-->
+<!--                                                </div>-->
+<!--                                                <div class="dark-cover"></div>-->
+<!--                                            </a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </section>
+</section>
+</body>
+</html>

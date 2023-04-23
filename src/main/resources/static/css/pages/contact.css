@@ -1,0 +1,32 @@
+#contact{
+    margin-top: 24px;
+}
+.contact-content{
+
+}
+.contact-content form{
+    margin-top: 24px;
+    color: #8b8b8b;
+}
+.contact-content form p{
+    margin-bottom: 24px;
+}
+.contact-content form input,
+.contact-content form textarea{
+    background-color: #313131;
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 6px 8px;
+    vertical-align: middle;
+    max-width: 100%;
+    color: white;
+    font-size: 14px;
+}
+.contact-content input[type="submit"]{
+    padding: 10px;
+    background-color: var(--red-color-1);
+    color: white;
+}
+

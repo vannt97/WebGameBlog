@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="header" class="" >
+<!--    nav mobile -->
+    <div class="container-fluid d-block d-lg-none px-0">
+        <nav class="d-flex d-lg-none py-0 navbar-mobile navbar-header navbar navbar-dark navbar-expand-lg bg-black-1 text-white">
+            <div class="container-fluid h-100 px-0 position-relative">
+                <a class="navbar-brand d-none d-lg-block px-3 py-0 h-100 " href="#">
+                    <i class="fa-solid fa-house-chimney me-1"></i>
+                    <span>HOME</span>
+                </a>
+                <button class="navbar-toggler ms-3 ms-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentMobile" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="/" class="w-25 text-center d-block d-lg-none navbar-brand-mobile">
+                    <img th:src="@{/images/banner.png}" alt="Gameleon Theme Dark Version"/>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContentMobile">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-gamepad"></i> ARCADE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-bomb"></i>
+                                Adventure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-car-burst"></i>
+                                Action
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-fire-flame-curved"></i>
+                                Most Played
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-at"></i>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <form class=" d-flex pe-3 ps-3 ps-lg-0 pt-2 pb-3 py-lg-0" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <div class="modern-ticker d-none d-sm-flex text-white position-relative">
+        <div class="bg-red-1 fw-bold mt-label text-nowrap">
+            TODAY HIGHLIGHTS:
+        </div>
+        <div class="px-4 bg-black-1 w-100 mt-news  ">
+            <div class="silder-header">
+                <div th:remove="tag" th:each="blog : ${blogs}">
+                    <div class="item">
+                        <a th:href="${'/' + blog.slug}" href="#">
+                            <span th:text="${blog.createdDate}" >February 25, 2022</span>
+                            <span th:text="${blog.title}">Our Highest Review Scores of 2020</span>
+                            <span th:utext="${{blog.description}}">Don’t act so surprised, Your Highness. You weren’t on…</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex bg-black-1 mt-controls">
+            <div class="me-1 mt-controls-prev">
+                <i class="fa-sharp fa-solid fa-angle-left"></i>
+            </div>
+            <div class="mt-controls-next">
+                <i class="fa-sharp fa-solid fa-angle-right"></i>
+            </div>
+        </div>
+    </div>
+
+<!--    nav desktop -->
+    <div class="container-fluid position-relative">
+        <div class="header-banner d-none d-lg-block">
+            <div class="row">
+                <div class="col-12">
+                    <a href="/">
+                        <img th:src="@{/images/banner.png}" alt="" src="/images/banner.png"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header-td-right position-relative " >
+            <div class="">
+                <a href="/">
+                    <i class="fa-brands fa-facebook-f"></i>
+<!--                    <span>LATEST</span>-->
+                </a>
+                <a href="/">
+                    <i class="fa-brands fa-youtube"></i>
+<!--                    <span>POPULAR</span>-->
+                </a>
+<!--                <a href="#">-->
+<!--                    <i class="fa-solid fa-fire-flame-curved"></i>-->
+<!--                    <span>HOT</span>-->
+<!--                </a>-->
+            </div>
+        </div>
+        <nav class="d-none d-lg-flex py-0 navbar-header navbar navbar-dark navbar-expand-lg bg-black-1 text-white">
+            <div class="container-fluid h-100 px-0">
+                <a th:classappend="${labelhome} ? active : ''" class="navbar-brand px-3 py-0 h-100 " href="/">
+                    <i class="fa-solid fa-house-chimney me-1"></i>
+                    <span>HOME</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-gamepad"></i> Category</a>-->
+<!--                        </li>-->
+
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="#">-->
+<!--                                <i class="fa-solid fa-bomb"></i>-->
+<!--                                Adventure</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="#">-->
+<!--                                <i class="fa-solid fa-car-burst"></i>-->
+<!--                                Action-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="#">-->
+<!--                                <i class="fa-solid fa-fire-flame-curved"></i>-->
+<!--                                Most Played-->
+<!--                            </a>-->
+<!--                        </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact-us">
+                                <i class="fa-solid fa-at"></i>
+                                Contact
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a th:classappend="${labelcateogry} ? active : ''" class="nav-link dropdown-toggle" href="#" id="navbarCategoryDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-gamepad"></i> Category
+                            </a>
+                            <ul style="background-color: #080808; color: white; border: none; border-radius: 0" class="dropdown-menu" aria-labelledby="navbarCategoryDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/category/pc-gaming">PC Gaming</a></li>
+                                <li><a class="dropdown-item" href="/category/ps5">PS 5</a></li>
+                                <li><a class="dropdown-item" href="/category/ps4">PS 4</a></li>
+                                <li><a class="dropdown-item" href="/category/xbox-series-x">Xbox Series X</a></li>
+                                <li><a class="dropdown-item" href="/category/xbox-one">Xbox One</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form action="/" class="d-flex pe-3" role="search">
+                        <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+</html>

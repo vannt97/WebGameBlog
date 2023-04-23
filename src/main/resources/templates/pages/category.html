@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{index}">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title}">Category</title>
+  <link rel="stylesheet" th:href="@{/css/pages/category.css}"/>
+  <script th:src="@{/js/pages/category.js}"></script>
+    <script th:inline="javascript">
+        let categorySlug = /*[[${title}]]*/ "Gertrud Kiwifruit";
+    </script>
+</head>
+<body>
+<section layout:fragment="content" id="category" class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="category">
+                <div class="layout-content">
+                    <div class="title">
+                        <h3>
+                            <p th:text="${#strings.toUpperCase(title)}">Arcade</p>
+                        </h3>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row" id="container-posts-category">
+                            <div th:each="post : ${posts}" class="col-12 col-lg-6">
+                                <div class="item-post">
+                                    <a th:href="'/' + ${post.slug}" >
+                                        <img style="aspect-ratio: 16/10; object-fit: cover" width="662" height="335" th:src="${post.thumbnail}" class="" alt="game">
+                                        <div class="dark-cover">
+                                        </div>
+                                    </a>
+                                    <h3 class="item-post-title">
+                                        <a th:href="'/' + ${post.slug}" th:text="${post.title}">
+                                            Fortnite Food Truck Locations
+                                        </a>
+                                    </h3>
+                                    <p th:text="${post.description}">
+                                        Don’t act so surprised, Your Highness. You weren’t on any mercy mission this time.…
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" th:if="${totalElement > size}">
+                            <div  class="col-12">
+                                <img  id="loadinggif" style="width: 30px; text-align: center; display: none" th:src="@{/images/loading-gif.gif}" alt="">
+                            </div>
+                            <div class="col-12">
+                                <button id="btn-more-read" class="btn btn-danger">Xem thêm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+<!--            <div class="top-new">-->
+<!--                <div class="layout-content">-->
+<!--                    <div class="title">-->
+<!--                        <h3>-->
+<!--                            <p>Top New!</p>-->
+<!--                        </h3>-->
+<!--                    </div>-->
+<!--                    <div class="container-fluid">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="item-post">-->
+<!--                                    <a href="#">-->
+<!--                                        <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                             alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                             th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                    </a>-->
+<!--                                    <div>-->
+<!--                                        <a href="#">-->
+<!--                                            <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                                        </a>-->
+<!--                                        <p>Feb 25, 2021</p>-->
+<!--                                        <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="item-post">-->
+<!--                                    <a href="#">-->
+<!--                                        <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                             alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                             th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                    </a>-->
+<!--                                    <div>-->
+<!--                                        <a href="#">-->
+<!--                                            <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                                        </a>-->
+<!--                                        <p>Feb 25, 2021</p>-->
+<!--                                        <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="item-post">-->
+<!--                                    <a href="#">-->
+<!--                                        <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                             alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                             th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                    </a>-->
+<!--                                    <div>-->
+<!--                                        <a href="#">-->
+<!--                                            <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                                        </a>-->
+<!--                                        <p>Feb 25, 2021</p>-->
+<!--                                        <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="item-post">-->
+<!--                                    <a href="#">-->
+<!--                                        <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                                             alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                                             th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                                    </a>-->
+<!--                                    <div>-->
+<!--                                        <a href="#">-->
+<!--                                            <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                                        </a>-->
+<!--                                        <p>Feb 25, 2021</p>-->
+<!--                                        <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="shooter-games">-->
+<!--                <div class="layout-content">-->
+<!--                    <div class="title">-->
+<!--                        <h3>-->
+<!--                            <p>Shooter Games</p>-->
+<!--                        </h3>-->
+<!--                    </div>-->
+<!--                    <div class="container-fluid">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="slider">-->
+<!--                                    <div class="item-slider">-->
+<!--                                        <a href="#">-->
+<!--                                            <img th:src="@{/images/game-27-300x365.jpg}" alt="game"/>-->
+<!--                                            <div>-->
+<!--                                                <span class="label">February 25, 2021</span>-->
+<!--                                                <p>This Game will Keep You up All Night</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="dark-cover"></div>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="item-slider">-->
+<!--                                        <a href="#">-->
+<!--                                            <img th:src="@{/images/game-28-300x365.jpg}" alt="game"/>-->
+<!--                                            <div>-->
+<!--                                                <span class="label">February 25, 2021</span>-->
+<!--                                                <p>This Game will Keep You up All Night</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="dark-cover"></div>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="item-slider">-->
+<!--                                        <a href="#">-->
+<!--                                            <img th:src="@{/images/game-29-300x365.jpg}" alt="game"/>-->
+<!--                                            <div>-->
+<!--                                                <span class="label">February 25, 2021</span>-->
+<!--                                                <p>This Game will Keep You up All Night</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="dark-cover"></div>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                    <div class="item-slider">-->
+<!--                                        <a href="#">-->
+<!--                                            <img th:src="@{/images/game-27-300x365.jpg}" alt="game"/>-->
+<!--                                            <div>-->
+<!--                                                <span class="label">February 25, 2021</span>-->
+<!--                                                <p>This Game will Keep You up All Night</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="dark-cover"></div>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</section>
+</body>
+</html>

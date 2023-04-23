@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{index}">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title}">Game details</title>
+  <link rel="stylesheet" th:href="@{/css/pages/detail.css}"/>
+    <script th:src="@{/js/pages/detail.js}"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script th:inline="javascript">
+    let id = /*[[${id}]]*/ "Gertrud Kiwifruit";
+
+  </script>
+</head>
+<body>
+<section layout:fragment="content" id="detail" class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="detail-post">
+        <div class="layout-content">
+          <div class="title">
+            <h3>
+              <p th:text="${title}">
+                Game Details</p>
+            </h3>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="schedule-post">
+                  <p>
+<!--                    <span th:each="category,iStat : ${categories}" class="type-label" th:if="${category.status == 'ACTIVE' && iStat.index < 2}" th:text="${category.name}">Arcade</span>-->
+                    <span th:text="${createDate}" class="time">February 22, 2021</span>
+                  </p>
+<!--                  <div>-->
+<!--                    <span class="like">-->
+<!--                      <a href="#">-->
+<!--                        <i class="fa-regular fa-thumbs-up"></i>-->
+<!--                      <span>2</span>-->
+<!--                      </a>-->
+<!--                    </span>-->
+<!--                    <span>-->
+<!--                      <a href="#">-->
+<!--                        <i class="fa-regular fa-comment-dots"></i>-->
+<!--                      <span>0</span>-->
+<!--                      </a>-->
+<!--                    </span>-->
+<!--                    <span>-->
+<!--                      <i class="fa-solid fa-trophy"></i>-->
+<!--                      <span>3746 Plays</span>-->
+<!--                    </span>-->
+<!--                  </div>-->
+                </div>
+                <img width="728" height="390" class="detail-img" th:src="${thumbnail}" alt="game-31"/>
+                <div class="share-box">
+                    <div class="numbers-share">
+                      <p>40</p>
+                      <span>SHARES</span>
+                    </div>
+                    <div class="btn-shares">
+                        <a href="#">
+                          <i class="fa-brands fa-facebook-f"></i>
+                          Share
+                        </a>
+                      <a href="#" class="twitter-bg">
+                        <i class="fa-brands fa-twitter"></i>
+                        Tweet
+                      </a>
+                    </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div th:utext="${content}" class="content-detail">
+                  <p>
+                    <img width="300" style="float: right; margin-left: 20px" th:src="@{/images/game-32.png}" alt="">
+                    Don’t act so surprised, Your Highness. You weren’t on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. A tremor in the Force. The last time I felt it was in the presence of my old master. Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you’re going.
+                    The other day the grass was brown, now it’s green because I ain’t give up. Never surrender. The ladies always say Khaled you smell good, I use no cologne. Cocoa butter is the key. Give thanks to the most high. I’m up to something. Major key, don’t fall for the trap, stay focused. It’s the ones closest to you that want to see you fail. Lion! Cloth talk.</p>
+                  <p>Don’t act so surprised, Your Highness. You weren’t on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. A tremor in the Force. The last time I felt it was in the presence of my old master. Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you’re going.</p>
+                  <p>The other day the grass was brown, now it’s green because I ain’t give up. Never surrender. The ladies always say Khaled you smell good, I use no cologne. Cocoa butter is the key. Give thanks to the most high. I’m up to something. Major key, don’t fall for the trap, stay focused. It’s the ones closest to you that want to see you fail. Lion! Cloth talk.</p>
+                </div>
+
+                <div class="tag-post">
+                  <span>Categories</span>
+                  <a th:each="category : ${categories}" th:href="'/category/' + ${category.slug}" th:if="${category.status == 'ACTIVE'}" th:text="${category.name}">ARCADE</a>
+                </div>
+                <div class="links-post">
+                  <span>
+                    <i class="fa-solid fa-share"></i>
+                    Share it!
+                  </span>
+                  <a class="twitter-bg" href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                    Twitter
+                  </a>
+                  <a class="fb-bg" href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                    Facebook
+                  </a>
+                  <a class="google-bg" href="#">
+                    <i class="fa-brands fa-google-plus"></i>
+                    Google +
+                  </a>
+                  <a class="pinterest-bg" href="#">
+                    <i class="fa-brands fa-pinterest"></i>
+                    Pinterest
+                  </a>
+                  <a class="linkin-bg" href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                    Linkdin
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="new-weekly-games">
+        <div class="layout-content">
+          <div class="title">
+            <h3>
+              <p>Related News</p>
+            </h3>
+          </div>
+          <div class="container-fluid">
+            <div class="row" id="related-news">
+<!--              <div class="col-12 col-lg-6">-->
+<!--                <div class="item-post">-->
+<!--                  <a href="#">-->
+<!--                    <img th:src="@{/images/game-24-302x180.jpg}" alt="game"/>-->
+<!--                  </a>-->
+<!--                  <h2 class="item-title">-->
+<!--                    <a href="#">-->
+<!--                      Top 10 Tips on Need for Speed Heat-->
+<!--                    </a>-->
+<!--                  </h2>-->
+<!--                  <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-lg-6">-->
+<!--                <div class="item-post">-->
+<!--                  <a href="#">-->
+<!--                    <img th:src="@{/images/game-24-302x180.jpg}" alt="game"/>-->
+<!--                  </a>-->
+<!--                  <h2 class="item-title">-->
+<!--                    <a href="#">-->
+<!--                      Top 10 Tips on Need for Speed Heat-->
+<!--                    </a>-->
+<!--                  </h2>-->
+<!--                  <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-lg-6">-->
+<!--                <div class="item-post">-->
+<!--                  <a href="#">-->
+<!--                    <img th:src="@{/images/game-24-302x180.jpg}" alt="game"/>-->
+<!--                  </a>-->
+<!--                  <h2 class="item-title">-->
+<!--                    <a href="#">-->
+<!--                      Top 10 Tips on Need for Speed Heat-->
+<!--                    </a>-->
+<!--                  </h2>-->
+<!--                  <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-12 col-lg-6">-->
+<!--                <div class="item-post">-->
+<!--                  <a href="#">-->
+<!--                    <img th:src="@{/images/game-24-302x180.jpg}" alt="game"/>-->
+<!--                  </a>-->
+<!--                  <h2 class="item-title">-->
+<!--                    <a href="#">-->
+<!--                      Top 10 Tips on Need for Speed Heat-->
+<!--                    </a>-->
+<!--                  </h2>-->
+<!--                  <p>Feb 15, 2021 <span>-</span> <a href="#"><span>No Comments</span></a></p>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+<!--      <div class="top-new">-->
+<!--        <div class="layout-content">-->
+<!--          <div class="title">-->
+<!--            <h3>-->
+<!--              <p>Top New!</p>-->
+<!--            </h3>-->
+<!--          </div>-->
+<!--          <div class="container-fluid">-->
+<!--            <div class="row">-->
+<!--              <div class="col-12">-->
+<!--                <div class="item-post">-->
+<!--                  <a href="#">-->
+<!--                    <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                         alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                         th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                  </a>-->
+<!--                  <div>-->
+<!--                    <a href="#">-->
+<!--                      <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                    </a>-->
+<!--                    <p>Feb 25, 2021</p>-->
+<!--                    <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-12">-->
+<!--                <div class="item-post">-->
+<!--                  <a href="#">-->
+<!--                    <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                         alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                         th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                  </a>-->
+<!--                  <div>-->
+<!--                    <a href="#">-->
+<!--                      <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                    </a>-->
+<!--                    <p>Feb 25, 2021</p>-->
+<!--                    <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-12">-->
+<!--                <div class="item-post">-->
+<!--                  <a href="#">-->
+<!--                    <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                         alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                         th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                  </a>-->
+<!--                  <div>-->
+<!--                    <a href="#">-->
+<!--                      <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                    </a>-->
+<!--                    <p>Feb 25, 2021</p>-->
+<!--                    <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-12">-->
+<!--                <div class="item-post">-->
+<!--                  <a href="#">-->
+<!--                    <img height="80" width="80" loading="lazy" role="presentation" th:src="@{/images/game-19-80x80.jpg}"-->
+<!--                         alt="game-icon" sizes="(max-width: 80px) 100vw, 80px"-->
+<!--                         th:attr="srcset=@{/images/game-19-80x80.jpg} + ' 80w, '-->
+<!--                                                     + @{/images/game-19-150x150.jpg} + ' 150w, '-->
+<!--                                                        + @{/images/game-19-90x90.jpg} + ' 90w'"/>-->
+<!--                  </a>-->
+<!--                  <div>-->
+<!--                    <a href="#">-->
+<!--                      <h2 class="item-title">Why I Love Using Detectors in Games</h2>-->
+<!--                    </a>-->
+<!--                    <p>Feb 25, 2021</p>-->
+<!--                    <span><i class="fa-solid fa-trophy"></i> 667 Plays</span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="shooter-games">-->
+<!--        <div class="layout-content">-->
+<!--          <div class="title">-->
+<!--            <h3>-->
+<!--              <p>Shooter Games</p>-->
+<!--            </h3>-->
+<!--          </div>-->
+<!--          <div class="container-fluid">-->
+<!--            <div class="row">-->
+<!--              <div class="col-12">-->
+<!--                <div class="slider">-->
+<!--                  <div class="item-slider">-->
+<!--                    <a href="#">-->
+<!--                      <img th:src="@{/images/game-27-300x365.jpg}" alt="game"/>-->
+<!--                      <div>-->
+<!--                        <span class="label">February 25, 2021</span>-->
+<!--                        <p>This Game will Keep You up All Night</p>-->
+<!--                      </div>-->
+<!--                      <div class="dark-cover"></div>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                  <div class="item-slider">-->
+<!--                    <a href="#">-->
+<!--                      <img th:src="@{/images/game-28-300x365.jpg}" alt="game"/>-->
+<!--                      <div>-->
+<!--                        <span class="label">February 25, 2021</span>-->
+<!--                        <p>This Game will Keep You up All Night</p>-->
+<!--                      </div>-->
+<!--                      <div class="dark-cover"></div>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                  <div class="item-slider">-->
+<!--                    <a href="#">-->
+<!--                      <img th:src="@{/images/game-29-300x365.jpg}" alt="game"/>-->
+<!--                      <div>-->
+<!--                        <span class="label">February 25, 2021</span>-->
+<!--                        <p>This Game will Keep You up All Night</p>-->
+<!--                      </div>-->
+<!--                      <div class="dark-cover"></div>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                  <div class="item-slider">-->
+<!--                    <a href="#">-->
+<!--                      <img th:src="@{/images/game-27-300x365.jpg}" alt="game"/>-->
+<!--                      <div>-->
+<!--                        <span class="label">February 25, 2021</span>-->
+<!--                        <p>This Game will Keep You up All Night</p>-->
+<!--                      </div>-->
+<!--                      <div class="dark-cover"></div>-->
+<!--                    </a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="game-play">-->
+<!--        <div class="layout-content">-->
+<!--          <div class="title">-->
+<!--            <h3>-->
+<!--              <p>Game Play</p>-->
+<!--            </h3>-->
+<!--          </div>-->
+<!--          <div class="game-play-ytb">-->
+<!--            <div class="w-100 position-relative">-->
+<!--              <div>-->
+<!--                <iframe title="THE LAST OF US 2 PS5 Gameplay 4K HDR ULTRA HD" src="https://www.youtube.com/embed/orDRnUXu-Rw?start=50&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" id="fitvid410595"></iframe>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+
+</section>
+</body>
+</html>

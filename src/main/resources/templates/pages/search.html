@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{index}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Search Results for ' + '“' + ${search} + '”' "> </title>
+    <link rel="stylesheet" th:href="@{/css/pages/search.css}"/>
+      <script th:src="@{/js/pages/search.js}"></script>
+</head>
+<body>
+<section layout:fragment="content" style="margin-top: 24px" id="contact" class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="layout-content">
+                <div class="title">
+                    <h3>
+                        <p th:text="'Search Results for ' + '“' + ${search} + '”' "></p>
+                    </h3>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12" th:if="${isResult == true}">
+                            <h2>Sorry, but nothing matched your search criteria.</h2>
+                        </div>
+                        <div class="col-12">
+                            <form id="search-input-form" class="d-flex justify-content-center">
+                                <input id="search-input-2" type="text" name="search" th:value="${search}">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                            <p class="text-center mt-2 fst-italic " style="font-size: 14px; color: #8b8b8b"> If you're not happy with the results, please do another search</p>
+                        </div>
+                    </div>
+                    <div id="search-container" th:if="${isResult != true}" class="row">
+                        <div th:each="post : ${posts}" class="col-12">
+                            <div class="search-post">
+                                <a  th:href="${'/' + post.slug}">
+                                    <img width="90" height="90" th:src="${post.thumbnail}" th:title="${post.title}" alt="game">
+                                </a>
+                                <div>
+                                    <a th:title="${post.title}" th:text="${post.title}" th:href="${'/' + post.slug}">
+                                        THE QUIET BRAIN OF THE ATHLETE
+                                    </a>
+                                    <p th:text="${post.description}">They key is to have every key, the key to open every door. Let’s…</p>
+                                </div>
+                            </div>
+                        </div>
+<!--                        <div class="col-12">-->
+<!--                            <div class="search-post">-->
+<!--                                <a href="#">-->
+<!--                                    <img width="90" height="90" th:src="@{/images/game-20-90x90.jpg}" alt="game">-->
+<!--                                </a>-->
+<!--                                <div>-->
+<!--                                    <a href="#">-->
+<!--                                        THE QUIET BRAIN OF THE ATHLETE-->
+<!--                                    </a>-->
+<!--                                    <p>They key is to have every key, the key to open every door. Let’s…</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-12">-->
+<!--                            <div class="search-post">-->
+<!--                                <a href="#">-->
+<!--                                    <img width="90" height="90" th:src="@{/images/game-20-90x90.jpg}" alt="game">-->
+<!--                                </a>-->
+<!--                                <div>-->
+<!--                                    <a href="#">-->
+<!--                                        THE QUIET BRAIN OF THE ATHLETE-->
+<!--                                    </a>-->
+<!--                                    <p>They key is to have every key, the key to open every door. Let’s…</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-12">-->
+<!--                            <div class="search-post">-->
+<!--                                <a href="#">-->
+<!--                                    <img width="90" height="90" th:src="@{/images/game-20-90x90.jpg}" alt="game">-->
+<!--                                </a>-->
+<!--                                <div>-->
+<!--                                    <a href="#">-->
+<!--                                        THE QUIET BRAIN OF THE ATHLETE-->
+<!--                                    </a>-->
+<!--                                    <p>They key is to have every key, the key to open every door. Let’s…</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                    <div class="row">
+                        <div id="loadinggif" class="col-12" style="display: none">
+                            <img style="width: 30px" th:src="@{/images/loading-gif.gif}" alt="loading"/>
+                        </div>
+                        <div th:if="${last != true}" class="col-12">
+                            <button id="search-more-post" class="btn btn-danger">Xem Thêm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+        </div>
+    </div>
+</section>
+</body>
+</html>

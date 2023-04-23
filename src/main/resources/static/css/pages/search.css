@@ -1,0 +1,46 @@
+#search-input-form input{
+    background-color: #313131;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    border-color: #191919;
+    margin: 0;
+    outline: 0;
+    padding: 6px 8px;
+    vertical-align: middle;
+    max-width: 100%;
+    color: #555;
+    font-size: 14px;
+    width: 75%;
+}
+#search-input-form button{
+    height: 35px;
+    padding: 5px 12px;
+    margin-top: 0;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-family: 'Font Awesome 5 Free';
+    border: medium none;
+    background-color: #f63a3a;
+    color: #fff;
+    font-size: 18px;
+}
+
+.search-post > a{
+    float: left;
+    margin-right: 1rem;
+}
+.search-post > a > img{
+    height: 90px;
+    object-fit: cover;
+}
+.search-post > div a{
+    font-size: 22px;
+    font-weight: 700;
+}
+.search-post > div a:hover{
+    color: #8b8b8b;
+}
+.search-post p{
+    color: #8b8b8b;
+}
